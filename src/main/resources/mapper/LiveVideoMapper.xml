@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mz.live.dao.mapper.LiveVideoMapper" >
+  <resultMap id="BaseResultMap" type="com.mz.live.dao.entity.LiveVideo" >
+    <id column="lv_id" property="lvId" jdbcType="BIGINT" />
+    <result column="stream_id" property="streamId" jdbcType="VARCHAR" />
+    <result column="video_id" property="videoId" jdbcType="VARCHAR" />
+    <result column="video_url" property="videoUrl" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="file_format" property="fileFormat" jdbcType="VARCHAR" />
+    <result column="file_id" property="fileId" jdbcType="VARCHAR" />
+    <result column="file_size" property="fileSize" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    lv_id, stream_id, video_id, video_url, start_time, end_time, file_format, file_id, 
+    file_size, create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_live_video
+    where lv_id = #{lvId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_live_video
+    where lv_id = #{lvId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insertSelective" parameterType="com.mz.live.dao.entity.LiveVideo" >
+    insert into t_live_video
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lvId != null" >
+        lv_id,
+      </if>
+      <if test="streamId != null" >
+        stream_id,
+      </if>
+      <if test="videoId != null" >
+        video_id,
+      </if>
+      <if test="videoUrl != null" >
+        video_url,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="fileFormat != null" >
+        file_format,
+      </if>
+      <if test="fileId != null" >
+        file_id,
+      </if>
+      <if test="fileSize != null" >
+        file_size,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lvId != null" >
+        #{lvId,jdbcType=BIGINT},
+      </if>
+      <if test="streamId != null" >
+        #{streamId,jdbcType=VARCHAR},
+      </if>
+      <if test="videoId != null" >
+        #{videoId,jdbcType=VARCHAR},
+      </if>
+      <if test="videoUrl != null" >
+        #{videoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fileFormat != null" >
+        #{fileFormat,jdbcType=VARCHAR},
+      </if>
+      <if test="fileId != null" >
+        #{fileId,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSize != null" >
+        #{fileSize,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mz.live.dao.entity.LiveVideo" >
+    update t_live_video
+    <set >
+      <if test="streamId != null" >
+        stream_id = #{streamId,jdbcType=VARCHAR},
+      </if>
+      <if test="videoId != null" >
+        video_id = #{videoId,jdbcType=VARCHAR},
+      </if>
+      <if test="videoUrl != null" >
+        video_url = #{videoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fileFormat != null" >
+        file_format = #{fileFormat,jdbcType=VARCHAR},
+      </if>
+      <if test="fileId != null" >
+        file_id = #{fileId,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSize != null" >
+        file_size = #{fileSize,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where lv_id = #{lvId,jdbcType=BIGINT}
+  </update>
+</mapper>

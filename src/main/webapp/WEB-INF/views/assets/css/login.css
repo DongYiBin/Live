@@ -1,0 +1,207 @@
+@charset "utf-8";
+body{
+	margin: 0;
+	padding: 0;
+}
+input:focus{
+	outline: none;
+}
+.bg-login{
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+/*.bg-pink{
+	background: #632948;
+	opacity: 0.5;
+	filter: progid:DXImageTransform.Microsoft.gradient(50);
+	z-index: 2;
+}*/
+.bg-login{
+	background: url(../img/login.jpg) center center no-repeat;
+}
+.bg-login>div{
+	width: 856px;
+	height: 540px;
+	padding: 45px 80px;
+	box-sizing: border-box;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -428px;
+	margin-top: -270px;
+}
+/*.bg-login>div:first-child{
+	z-index: 2;
+	background: #c16982;
+	opacity: 0.65;
+	filter: progid:DXImageTransform.Microsoft.gradient(65);
+}*/
+.bg-login>div:last-child{
+	z-index: 3;
+}
+.bg-login .box-login,.bg-login .box{
+	float: left;
+}
+.bg-login .box-login{
+	width: 320px;
+	text-align: center;
+}
+.bg-login .box-login .login-logo span{
+	display: block;
+	font-size: 18px;
+	color: #d4c4ce;
+	text-align: center;
+	margin-top: 15px;
+}
+.bg-login .box-login .input-login>div.input-login-group{
+	width: 100%;
+	height: 40px;
+	clear: both;
+	margin-top: 35px;
+}
+.bg-login .box-login .input-login>div.input-login-group{
+	border-bottom: 1px solid #af8fa1;
+}
+.bg-login .box-login .input-login .input-login-group span,.bg-login .box-login .input-login .input-login-group input{
+	float: left;
+}
+.bg-login .box-login .input-login .input-login-group input{
+	width: 260px;
+	height: 21px;
+	line-height: 21px;
+	text-indent: 12px;
+	color: #fff;
+	font-size: 18px;
+	border:none;
+	border-left: 1px solid #af8fa1;
+	background: transparent;
+	margin-top: 9px;
+}
+.bg-login .box-login .input-login .input-login-group span{
+	display: inline-block;
+	width: 21px;
+	height: 25px;
+	padding: 7px 13px;
+}
+.bg-login .box-login .user-login{
+	background: url(../img/user-login.png) center center no-repeat;
+}
+.bg-login .box-login .password-login{
+	background: url(../img/password-login.png) center center no-repeat;
+}
+.bg-login .box-login .checkbox-login{
+	clear: both;
+	width: 100%;
+	height: 27px;
+	text-align: left;
+	margin-top: 34px;
+}
+.bg-login .box-login .checkbox-login label{
+	cursor: pointer;
+	height: 20px;
+	line-height: 20px;
+	color: #d4c4ce;
+	float: left;
+}
+.bg-login .box-login .checkbox-login a{
+	float: right;
+	color: #d4c4ce;
+	text-decoration: none;
+}
+.bg-login .box-login button{
+	display: block;
+	clear: both;
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	background: #f54c8d;
+	color: #fff;
+	font-size: 22px;
+	border: none;
+	cursor: pointer;
+}
+.bg-login .box{
+	margin-top: 150px;
+	margin-left: 90px;
+}
+.bg-login .box>div:first-child{
+	padding-left: 75px;
+	padding-right: 75px;
+	padding-bottom: 16px;
+	border-left: 1px solid #af8fa1;
+}
+.bg-login .box>div:last-child{
+	font-size: 22px;
+	color: #fff;
+	text-align: center;
+	margin-top: 30px;
+}
+.bg-login .box-clear{
+	width: 320px;
+	text-align: center;
+	clear: both;
+	padding-top: 25px;
+}
+.bg-login .box-clear>div:first-child{
+	color: #d4c4ce;
+	font-size: 12px;
+	height: 20px;
+	line-height: 20px;
+	position: relative;
+}
+.bg-login .box-clear>div:first-child::before,.bg-login .box-clear>div:first-child::after{
+	content: '';
+	width: 55px;
+	height: 10px;
+	border-bottom: 1px solid #af8fa1;
+	position: absolute;
+	top: 0;
+}
+.bg-login .box-clear>div:first-child::before{
+	left: 63px;
+}
+.bg-login .box-clear>div:first-child::after{
+	right: 63px;
+}
+.bg-login .box-clear>div:last-child{
+	height: 18px;
+	margin-top: 20px;
+	font-size: 0;
+	background: url(../img/login-sdk.png) center center no-repeat;
+}
+.bg-login .box-clear a{
+	display: inline-block;
+	width: 30%;
+	height: 18px;
+	color: transparent;
+}
+@media (max-width: 1024px){
+	.bg-login {
+	    background: #874562;
+	}
+	.bg-login .box-login {
+	    width: 100%;
+	}
+	.bg-login .box{
+		display: none;
+	}
+	.bg-login>div {
+	    width: 100%;
+	    padding: 15px;
+	    box-sizing: border-box;
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	    margin: 0;
+	}
+	.bg-login .box-login .input-login .input-login-group input{
+		width: 220px;
+	}
+	.bg-login .box-clear{
+		margin: 0 auto;
+	}
+}

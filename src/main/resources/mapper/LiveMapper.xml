@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mz.live.dao.mapper.LiveMapper" >
+  <resultMap id="BaseResultMap" type="com.mz.live.dao.entity.Live" >
+    <id column="stream_id" property="streamId" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="group_id" property="groupId" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="cover_pic" property="coverPic" jdbcType="VARCHAR" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="push_url" property="pushUrl" jdbcType="VARCHAR" />
+    <result column="play_rtmp_url" property="playRtmpUrl" jdbcType="VARCHAR" />
+    <result column="play_flv_url" property="playFlvUrl" jdbcType="VARCHAR" />
+    <result column="play_hls_url" property="playHlsUrl" jdbcType="VARCHAR" />
+    <result column="play_url" property="playUrl" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="duration" property="duration" jdbcType="BIGINT" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <association property="user" column="{userId = user_id}" select="getUserLink"/>
+    <collection property="liveVideos" column="{streamId = stream_id}" select="getLiveVideoList"/>
+  </resultMap>
+  
+  <!-- User Result Map -->
+  <resultMap id="UserResultMap" type="com.mz.live.dao.entity.User">
+	<id column="user_id" property="userId" jdbcType="VARCHAR" />
+	<result column="account" property="account" jdbcType="VARCHAR" />
+	<!-- <result column="password" property="password" jdbcType="VARCHAR" /> -->
+	<result column="phone" property="phone" jdbcType="VARCHAR" />
+	<result column="head_pic" property="headPic" jdbcType="VARCHAR" />
+	<result column="user_name" property="userName" jdbcType="VARCHAR" />
+	<result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+	<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="User_Column_List">
+    user_id, account, phone, head_pic, user_name, nick_name, create_time
+  </sql>
+  <select id="getUserLink" resultMap="UserResultMap" parameterType="java.util.Map">
+  	SELECT 
+  	<include refid="User_Column_List" />
+  	FROM t_user WHERE user_id = #{userId}
+  </select>
+  
+  <resultMap id="LiveVideoResultMap" type="com.mz.live.dao.entity.LiveVideo" >
+    <id column="lv_id" property="lvId" jdbcType="BIGINT" />
+    <result column="stream_id" property="streamId" jdbcType="VARCHAR" />
+    <result column="video_id" property="videoId" jdbcType="VARCHAR" />
+    <result column="video_url" property="videoUrl" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="file_format" property="fileFormat" jdbcType="VARCHAR" />
+    <result column="file_id" property="fileId" jdbcType="VARCHAR" />
+    <result column="file_size" property="fileSize" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <select id="getLiveVideoList" resultMap="LiveVideoResultMap" parameterType="java.util.Map">
+    SELECT * FROM t_live_video WHERE stream_id = #{streamId}
+  </select>
+  
+  <sql id="Base_Column_List" >
+    stream_id, user_id, group_id, title, cover_pic, location, push_url, play_rtmp_url, 
+    play_flv_url, play_hls_url, play_url, state, duration, start_time, create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_live
+    where stream_id = #{streamId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_live
+    where stream_id = #{streamId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insertSelective" parameterType="com.mz.live.dao.entity.Live" >
+    insert into t_live
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="streamId != null" >
+        stream_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="groupId != null" >
+        group_id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="coverPic != null" >
+        cover_pic,
+      </if>
+      <if test="location != null" >
+        location,
+      </if>
+      <if test="pushUrl != null" >
+        push_url,
+      </if>
+      <if test="playRtmpUrl != null" >
+        play_rtmp_url,
+      </if>
+      <if test="playFlvUrl != null" >
+        play_flv_url,
+      </if>
+      <if test="playHlsUrl != null" >
+        play_hls_url,
+      </if>
+      <if test="playUrl != null" >
+        play_url,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="duration != null" >
+        duration,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="streamId != null" >
+        #{streamId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null" >
+        #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="coverPic != null" >
+        #{coverPic,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="pushUrl != null" >
+        #{pushUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="playRtmpUrl != null" >
+        #{playRtmpUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="playFlvUrl != null" >
+        #{playFlvUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="playHlsUrl != null" >
+        #{playHlsUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="playUrl != null" >
+        #{playUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="duration != null" >
+        #{duration,jdbcType=BIGINT},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mz.live.dao.entity.Live" >
+    update t_live
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null" >
+        group_id = #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="coverPic != null" >
+        cover_pic = #{coverPic,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="pushUrl != null" >
+        push_url = #{pushUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="playRtmpUrl != null" >
+        play_rtmp_url = #{playRtmpUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="playFlvUrl != null" >
+        play_flv_url = #{playFlvUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="playHlsUrl != null" >
+        play_hls_url = #{playHlsUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="playUrl != null" >
+        play_url = #{playUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="duration != null" >
+        duration = #{duration,jdbcType=BIGINT},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where stream_id = #{streamId,jdbcType=VARCHAR}
+  </update>
+  
+  <select id="getAppLivePage" resultMap="BaseResultMap" parameterType="com.mz.live.common.page.PageParam">
+    SELECT 
+    <include refid="Base_Column_List" />  
+    FROM t_live 
+    WHERE state IN (1,100)
+      <if test="p.userId != null and p.userId != ''">
+        AND userId = #{p.userId} 
+      </if>
+      <if test="p.streamId != null and p.streamId != ''">
+        AND stream_id = #{streamId} 
+      </if>
+      <if test="p.title != null and p.title != ''">
+        AND title LIKE CONCAT('%',#{p.title},'%') 
+      </if>
+      <if test="p.state != null">
+        AND state = #{p.state} 
+      </if>
+    ORDER BY create_time DESC 
+   </select>
+   
+   <select id="findLivePageList" resultMap="BaseResultMap" parameterType="com.mz.live.common.page.PageParam">
+		SELECT 
+		l.* 
+		FROM t_live l INNER JOIN t_user u ON l.user_id = u.user_id 
+		WHERE l.state != -1 
+		  <if test="p.userId != null and p.userId != ''">
+		    AND l.userId = #{p.userId} 
+		  </if>
+		  <if test="p.streamId != null and p.streamId != ''">
+		    AND l.stream_id = #{streamId} 
+		  </if>
+		  <if test="p.title != null and p.title != ''">
+		    AND l.title LIKE CONCAT('%',#{p.title},'%') 
+		  </if>
+		  <if test="p.state != null">
+		    AND l.state = #{p.state} 
+		  </if>
+		  <if test="p.user.nickName != null and p.user.nickName != ''">
+		  	AND u.nick_name LIKE CONCAT('%',#{p.user.nickName},'%')
+		  </if>
+		ORDER BY l.create_time DESC 
+	</select>
+</mapper>

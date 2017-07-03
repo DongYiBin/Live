@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>直播</title>
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+	<body>
+		<div class="page-content">
+			<!--播放器层-->
+			<div id="id_video_container"></div>
+			<!--用户信息/观看量层-->
+			<div class="userObject">
+				<div class="user">
+					<img src="img/userHeader.jpg" alt="用户头像" />
+					<div>
+						<span>用户名</span>
+						<span>直播中</span>
+					</div>
+				</div>
+				<div class="userList">
+					<div>
+						<span class="count">0</span>
+						<span class="zanNum">0</span>
+					</div>
+				</div>
+			</div>
+			<div class="msgObject">
+				<div class="lisgMsg">
+					<ul>
+						<!--<li>
+							<div>
+								<span>名称：</span>随便说点什么吧
+							</div>
+						</li>-->
+					</ul>
+				</div>
+				<div class="sendMsg">
+					<form>
+						<input type="text" placeholder="随便说点什么吧" />
+						<button type="submit">发送</button>
+					</form>
+				</div>
+			</div>
+			<div class="zan">
+				<div></div>
+			</div>
+		</div>
+		
+		<script>
+			var sdkappid = "1400016777";
+			var acctype = "7913";
+			var loginUrl = window.location.href;
+		</script>
+		<script src="js/layer/layer.js"></script>
+		<script src="js/service.js"></script>
+		<script src="https://tls.qcloud.com/libs/api.min.js"></script>
+		<script src="js/im/webim.js"></script>
+		<script src="js/im/imBase.js"></script>
+		<script src="js/im/im.js"></script>
+		<script src="js/player.js"></script>
+		<script src="js/index.js"></script>
+		<script>
+		
+		var loginInfo = {
+			"sdkappid":sdkappid,
+			"acctype":acctype,
+			"loginUrl":loginUrl
+		}
+		
+		//以下代码为托管模式,如独立模式请自行获取loginIfo中所有数值
+		
+		//获取临时凭证
+		function goLogin(data){
+			TLSHelper.goLogin({
+		        sdkappid: sdkappid,
+		        acctype: acctype,
+		        url: loginUrl
+		    });
+		}
+		
+		//第三方应用需要实现这个函数，并在这里拿到UserSig
+		function tlsGetUserSig(res) {
+		    //成功拿到凭证
+		    if (res.ErrorCode == webim.TLS_ERROR_CODE.OK) {
+		        //从当前URL中获取参数为identifier的值
+		        loginInfo.identifier = webim.Tool.getQueryString("identifier");
+		        loginInfo.identifierNick = webim.Tool.getQueryString("identifier");
+		        //拿到正式身份凭证
+		        loginInfo.userSig = res.UserSig;
+		        //从当前URL中获取参数为sdkappid的值
+		        loginInfo.sdkAppID = loginInfo.appIDAt3rd = Number(webim.Tool.getQueryString("sdkappid"));
+		    } else {
+		        //签名过期，需要重新登录
+		        if (res.ErrorCode == webim.TLS_ERROR_CODE.SIGNATURE_EXPIRATION) {
+		            goLogin(loginInfo);
+		        } else {
+		            layer.open({
+		            	content:"[" + res.ErrorCode + "]" + res.ErrorInfo,
+		            	time:2
+		            });
+		        }
+		    }
+		}
+		
+		//是否有临时凭证
+		if(TLSHelper.getQuery('tmpsig')){
+			TLSHelper.fetchUserSig();
+		}
+		
+		//以上代码为托管模式,如独立模式请自行获取loginIfo中所有数值
+		</script>
+	</body>
+</html>
