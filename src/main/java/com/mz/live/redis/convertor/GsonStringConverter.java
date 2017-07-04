@@ -28,6 +28,9 @@ public class GsonStringConverter implements StringConverter {
 		return gson.toJson(t);
 	}
 
+	/**
+	 * 将字符串转换为指定类型的对象.适用于非泛型类型.
+	 */
 	public <T> T fromString(String value, Class<T> clazz) {
 		return gson.fromJson(value, clazz);
 	}

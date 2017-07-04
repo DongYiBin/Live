@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.mz.live.common.JsonDateSerializer;
 
 /**
+ * 视频点播
  * 
  * @author Tencent Cloud
  * @author CETC55
