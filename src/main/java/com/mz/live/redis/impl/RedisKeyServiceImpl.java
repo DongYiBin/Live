@@ -31,19 +31,31 @@ public class RedisKeyServiceImpl implements RedisKeyService {
 		this.converter = converter;
 	}
 
+	/**
+	 * 设置某个key的时效时间.
+	 */
 	public boolean expired(String Key, long timeInSeconds) {
 		return redisTemplate.expire(Key, timeInSeconds, TimeUnit.SECONDS);
 	}
 
+	/**
+	 * 判断指定key是否存在. 
+	 */
 	public boolean exists(String key) {
 		return redisTemplate.hasKey(key);
 	}
 
+	/**
+	 * 批量删除key
+	 */
 	public boolean delete(String key) {
 		redisTemplate.delete(key);
 		return true;
 	}
 
+	/**
+	 * 批量删除key
+	 */
 	public boolean delete(Collection<String> keys) {
 		redisTemplate.delete(keys);
 		return true;

@@ -11,6 +11,7 @@ import com.mz.live.common.constant.EnumLive;
 
 @JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class Live {
+	// 直播ID
 	private String streamId;
 
 	private String userId;
