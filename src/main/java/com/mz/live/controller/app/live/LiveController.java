@@ -106,7 +106,7 @@ public class LiveController {
 	
 	/**
 	 * 开始直播
-	 * @param streamId
+	 * @param streamId1
 	 * @return
 	 * @author zhaodun
 	 */
