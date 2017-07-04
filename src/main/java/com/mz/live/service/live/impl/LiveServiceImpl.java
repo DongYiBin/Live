@@ -59,6 +59,11 @@ public class LiveServiceImpl implements LiveService {
 	@Autowired
 	private LiveVideoMapper liveVideoMapper;
 
+	/**
+	 * 缓存数据
+	 * @param live
+	 * @return
+	 */
 	private Live setLiveRedisData(Live live) {
 		if (null == live) {
 			return null;
@@ -70,6 +75,9 @@ public class LiveServiceImpl implements LiveService {
 		return live;
 	}
 
+	/**
+	 * 创建直播
+	 */
 	@Override
 	@Transactional
 	public RestResult createLive(Live create) {
@@ -95,6 +103,9 @@ public class LiveServiceImpl implements LiveService {
 		return RestResult.FAIL;
 	}
 
+	/**
+	 * 根据streamId获取直播
+	 */
 	@Override
 	public Live getLiveByStreamId(String streamId) {
 		Live live = liveMapper.selectByPrimaryKey(streamId);
@@ -102,6 +113,9 @@ public class LiveServiceImpl implements LiveService {
 		return live;
 	}
 
+	/**
+	 * 获取APP直播分页列表
+	 */
 	@Override
 	public PageData<Live> getAppLivePage(Integer pageNum, Integer pageSize, Live live) {
 		PageParam<Live> param = new PageParam<Live>(live, pageNum, pageSize);
@@ -115,6 +129,9 @@ public class LiveServiceImpl implements LiveService {
 		return page;
 	}
 
+	/**
+	 * 添加直播点赞
+	 */
 	@Override
 	public Live addLivePraiseNum(String streamId, int num) {
 		Live live = liveMapper.selectByPrimaryKey(streamId);
@@ -130,6 +147,9 @@ public class LiveServiceImpl implements LiveService {
 		return null;
 	}
 
+	/**
+	 * 添加直播观看次数
+	 */
 	@Override
 	public Live addLiveViewerNum(String streamId, int num) {
 		Live live = liveMapper.selectByPrimaryKey(streamId);
@@ -145,6 +165,9 @@ public class LiveServiceImpl implements LiveService {
 		return null;
 	}
 
+	/**
+	 * 直播回调处理
+	 */
 	@Override
 	public boolean liveCallBackDispose(LiveCalbackVo vo) {
 		if (null != vo && null != vo.getStream_id()) {
@@ -192,6 +215,9 @@ public class LiveServiceImpl implements LiveService {
 		return false;
 	}
 
+	/**
+	 * 直播开始推流
+	 */
 	@Override
 	public Live pushStart(String streamId) {
 		Live live = liveMapper.selectByPrimaryKey(streamId);
@@ -207,6 +233,9 @@ public class LiveServiceImpl implements LiveService {
 		return null;
 	}
 
+	/**
+	 * 直播结束推流
+	 */
 	@Override
 	public Live pushStop(String streamId) {
 		Live live = liveMapper.selectByPrimaryKey(streamId);
@@ -221,6 +250,9 @@ public class LiveServiceImpl implements LiveService {
 		return null;
 	}
 
+	/**
+	 * 查询直播数据分页列表
+	 */
 	@Override
 	public PageData<Live> findLivePageList(Integer pageNum, Integer pageSize, Live live) {
 		PageParam<Live> param = new PageParam<Live>(live, pageNum, pageSize);
@@ -234,6 +266,9 @@ public class LiveServiceImpl implements LiveService {
 		return page;
 	}
 
+	/**
+	 * 禁播直播
+	 */
 	@Override
 	public RestResult forbidLive(String streamId){
 		// 根据直播streamId 获取直播数据
