@@ -18,6 +18,9 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserMapper userMapper;
 
+	/**
+	 * 用户注册
+	 */
 	@Override
 	public RestResult register(String account, String password) {
 		User user = new User();
@@ -40,6 +43,9 @@ public class UserServiceImpl implements UserService {
 		return RestResult.FAIL;
 	}
 
+	/**
+	 * 用户登录
+	 */
 	@Override
 	public RestResult login(String account, String password) {
 		User query = new User();
