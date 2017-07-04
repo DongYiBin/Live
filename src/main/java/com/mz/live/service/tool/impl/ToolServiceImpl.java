@@ -28,6 +28,13 @@ public class ToolServiceImpl implements ToolService {
 	@Value("${qcloud_cos_bucket}")
 	private String QQ_CLOUD_COS_BUCKET;
 
+	/**
+	 * 腾讯云存储Sign
+	 * @param type 0:查询签名,1,下载签名
+	 * @param isSingle 
+	 * @return RestResult
+	 * @author zhaodun
+	 */
 	@Override
 	public RestResult getQCloudCosSign(int type, boolean isSingle) {
 		Credentials cred = new Credentials(Integer.parseInt(QQ_CLOUD_COS_APP_ID), QQ_CLOUD_COS_SECRET_ID, QQ_CLOUD_COS_SECRET_KEY);
