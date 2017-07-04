@@ -13,6 +13,9 @@ public class AdminUserServiceImpl implements AdminUserService {
 	@Autowired
 	private AdminUserMapper adminUserMapper;
 
+	/**
+	 * 获取admin
+	 */
 	@Override
 	public AdminUser findUser(AdminUser user) {
 		return adminUserMapper.findUser(user);
