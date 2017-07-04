@@ -1,3 +1,8 @@
+/*
+ * Copyright © 2013-2017 Tencent Cloud. All Rights Reserved.
+ * Tencent PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *
+ */
 package com.mz.live.redis;
 
 import java.util.Collection;
@@ -6,9 +11,10 @@ import java.util.Collection;
  * Function: redis与键值相关的操作接口. <br/>
  * Date: 2015年6月26日 下午2:09:53 <br/>  
  *  
- * @author dun  
- * @version   
- * @since JDK 1.6  
+ * @author Tencent Cloud
+ * @author CETC55
+ * @date 2017/7/3
+ * @since v1.0
  */
 public interface RedisKeyService {
      

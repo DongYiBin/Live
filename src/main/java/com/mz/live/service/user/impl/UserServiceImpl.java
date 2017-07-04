@@ -1,3 +1,8 @@
+/*
+ * Copyright © 2013-2017 Tencent Cloud. All Rights Reserved.
+ * Tencent PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *
+ */
 package com.mz.live.service.user.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +17,13 @@ import com.mz.live.service.user.UserService;
 import com.mz.live.utils.MD5Utils;
 import com.mz.live.utils.UUIDUtils;
 
+/**
+ * 
+ * @author Tencent Cloud
+ * @author CETC55
+ * @date 2017/7/3
+ * @since v1.0
+ */
 @Service
 public class UserServiceImpl implements UserService {
 

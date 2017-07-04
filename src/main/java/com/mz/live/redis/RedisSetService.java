@@ -1,3 +1,8 @@
+/*
+ * Copyright © 2013-2017 Tencent Cloud. All Rights Reserved.
+ * Tencent PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *
+ */
 package com.mz.live.redis;
 
 import java.lang.reflect.Type;
@@ -9,9 +14,10 @@ import java.util.Set;
  * 该组件中使用stringconverter来控制对象到字符串的转化，使用中请注入合适的stringconverter来保证相同的对象能够序列为相同的字符串。
  * Date: 2015年6月26日 下午4:30:09 <br/>  
  *  
- * @author dun  
- * @version   
- * @since JDK 1.6  
+ * @author Tencent Cloud
+ * @author CETC55
+ * @date 2017/7/3
+ * @since v1.0
  */
 public interface RedisSetService extends RedisKeyService {
     

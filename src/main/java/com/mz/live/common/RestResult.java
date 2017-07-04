@@ -1,3 +1,8 @@
+/*
+ * Copyright © 2013-2017 Tencent Cloud. All Rights Reserved.
+ * Tencent PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *
+ */
 package com.mz.live.common;
 //
 
@@ -10,6 +15,13 @@ import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.mz.live.common.constant.ErrorCode;
 
+/**
+ * 
+ * @author Tencent Cloud
+ * @author CETC55
+ * @date 2017/7/3
+ * @since v1.0
+ */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RestResult implements Serializable {
 	private static final long serialVersionUID = -1809195782514717593L;

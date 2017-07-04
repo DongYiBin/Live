@@ -1,15 +1,19 @@
+/*
+ * Copyright © 2013-2017 Tencent Cloud. All Rights Reserved.
+ * Tencent PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *
+ */
 package com.mz.live.redis.convertor;
 
 import java.lang.reflect.Type;
 
 
-/**  
- * Function: java对象到字符串的转换接口. <br/>
- * Date: 2015年6月26日 上午11:44:51 <br/>  
- *  
- * @author dun  
- * @version   
- * @since JDK 1.6  
+/**
+ * 
+ * @author Tencent Cloud
+ * @author CETC55
+ * @date 2017/7/3
+ * @since v1.0
  */
 public interface StringConverter{
     

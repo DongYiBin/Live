@@ -1,3 +1,8 @@
+/*
+ * Copyright © 2013-2017 Tencent Cloud. All Rights Reserved.
+ * Tencent PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *
+ */
 package com.mz.live.redis.convertor;
 
 import com.google.gson.Gson;
@@ -5,6 +10,13 @@ import com.google.gson.GsonBuilder;
 
 import java.lang.reflect.Type;
 
+/**
+ * 
+ * @author Tencent Cloud
+ * @author CETC55
+ * @date 2017/7/3
+ * @since v1.0
+ */
 public class GsonStringConverter implements StringConverter {
 
 	private Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();

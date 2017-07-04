@@ -1,3 +1,8 @@
+/*
+ * Copyright © 2013-2017 Tencent Cloud. All Rights Reserved.
+ * Tencent PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *
+ */
 package com.mz.live.service.tool.impl;
 
 import java.util.HashMap;
@@ -12,6 +17,13 @@ import com.qcloud.cos.exception.AbstractCosException;
 import com.qcloud.cos.sign.Credentials;
 import com.qcloud.cos.sign.Sign;
 
+/**
+ * 
+ * @author Tencent Cloud
+ * @author CETC55
+ * @date 2017/7/3
+ * @since v1.0
+ */
 @Service
 public class ToolServiceImpl implements ToolService {
 

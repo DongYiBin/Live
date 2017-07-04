@@ -1,3 +1,8 @@
+/*
+ * Copyright © 2013-2017 Tencent Cloud. All Rights Reserved.
+ * Tencent PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *
+ */
 package com.mz.live.service.live.impl;
 
 import java.io.IOException;
@@ -34,6 +39,13 @@ import com.mz.live.utils.DateUtils;
 import com.mz.live.utils.HttpClientUtils;
 import com.mz.live.utils.UUIDUtils;
 
+/**
+ * 
+ * @author Tencent Cloud
+ * @author CETC55
+ * @date 2017/7/3
+ * @since v1.0
+ */
 @Service
 public class LiveServiceImpl implements LiveService {
 

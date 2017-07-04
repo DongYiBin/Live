@@ -1,3 +1,8 @@
+/*
+ * Copyright © 2013-2017 Tencent Cloud. All Rights Reserved.
+ * Tencent PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *
+ */
 package com.mz.live.dao.entity;
 
 import java.util.ArrayList;
@@ -9,6 +14,13 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.mz.live.common.JsonDateSerializer;
 import com.mz.live.common.constant.EnumLive;
 
+/**
+ * 
+ * @author Tencent Cloud
+ * @author CETC55
+ * @date 2017/7/3
+ * @since v1.0
+ */
 @JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class Live {
 	private String streamId;

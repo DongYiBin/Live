@@ -1,3 +1,8 @@
+/*
+ * Copyright © 2013-2017 Tencent Cloud. All Rights Reserved.
+ * Tencent PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *
+ */
 package com.mz.live.controller.app.tool;
 
 import java.io.IOException;
@@ -13,6 +18,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.mz.live.common.RestResult;
 import com.mz.live.service.tool.ToolService;
 
+/**
+ * 
+ * @author Tencent Cloud
+ * @author CETC55
+ * @date 2017/7/3
+ * @since v1.0
+ */
 @Controller
 @RequestMapping("app/tool")
 public class ToolController {

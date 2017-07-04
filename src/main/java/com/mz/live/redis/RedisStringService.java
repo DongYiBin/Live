@@ -1,3 +1,8 @@
+/*
+ * Copyright © 2013-2017 Tencent Cloud. All Rights Reserved.
+ * Tencent PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *
+ */
 package com.mz.live.redis;
 
 
@@ -11,9 +16,10 @@ import java.util.Map;
  * Function: redis 字符串类型数据操作接口. <br/>    
  * date: 2015年6月26日 上午10:32:47 <br/>  
  *  
- * @author dun  
- * @version   
- * @since JDK 1.6  
+ * @author Tencent Cloud
+ * @author CETC55
+ * @date 2017/7/3
+ * @since v1.0 
  */
 public interface RedisStringService extends RedisKeyService{
 

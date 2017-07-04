@@ -1,3 +1,8 @@
+/*
+ * Copyright © 2013-2017 Tencent Cloud. All Rights Reserved.
+ * Tencent PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *
+ */
 package com.mz.live.common;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +13,13 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.mz.live.dao.entity.AdminUser;
 
+/**
+ * 
+ * @author Tencent Cloud
+ * @author CETC55
+ * @date 2017/7/3
+ * @since v1.0
+ */
 public class SessionUtils {
 
 	private static final String ADMIN_USER = "ADMIN_USER";
