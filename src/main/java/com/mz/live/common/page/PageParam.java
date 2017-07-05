@@ -11,8 +11,8 @@ import java.io.Serializable;
  * 
  * @author Tencent Cloud
  * @author CETC55
- * @date 2017/7/3
- * @since v1.0
+ * @since 2017/7/3
+ * @version v1.0
  */
 public class PageParam<P> implements Serializable {
 	private static final long serialVersionUID = 1L;

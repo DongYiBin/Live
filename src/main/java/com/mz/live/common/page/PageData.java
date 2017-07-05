@@ -9,8 +9,8 @@ package com.mz.live.common.page;
  * 
  * @author Tencent Cloud
  * @author CETC55
- * @date 2017/7/3
- * @since v1.0
+ * @since 2017/7/3
+ * @version v1.0
  */
 import java.io.Serializable;
 import java.util.ArrayList;
