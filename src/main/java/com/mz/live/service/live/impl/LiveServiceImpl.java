@@ -43,8 +43,8 @@ import com.mz.live.utils.UUIDUtils;
  * 
  * @author Tencent Cloud
  * @author CETC55
- * @date 2017/7/3
- * @since v1.0
+ * @since 2017/7/3
+ * @version v1.0
  */
 @Service
 public class LiveServiceImpl implements LiveService {

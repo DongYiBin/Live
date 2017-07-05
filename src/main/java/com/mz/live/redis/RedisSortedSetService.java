@@ -15,8 +15,8 @@ import java.util.Set;
  *  
  * @author Tencent Cloud
  * @author CETC55
- * @date 2017/7/3
- * @since v1.0
+ * @since 2017/7/3
+ * @version v1.0
  */
 public interface RedisSortedSetService extends RedisKeyService {
     /**  
