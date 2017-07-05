@@ -13,11 +13,11 @@ import com.douxue.live.dao.mapper.AdminUserMapper;
 import com.douxue.live.service.admin.AdminUserService;
 
 /**
- * 
+ * adminuser的service层的具体实现
  * @author Tencent Cloud
  * @author CETC55
- * @date 2017/7/3
- * @since v1.0
+ * @since 2017/7/3
+ * @version v1.0
  */
 @Service
 public class AdminUserServiceImpl implements AdminUserService {

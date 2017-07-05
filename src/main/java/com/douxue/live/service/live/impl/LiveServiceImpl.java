@@ -40,11 +40,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 /**
- * 
+ * 直播的具体实现类
  * @author Tencent Cloud
  * @author CETC55
- * @date 2017/7/3
- * @since v1.0
+ * @since 2017/7/3
+ * @version v1.0
  */
 @Service
 public class LiveServiceImpl implements LiveService {

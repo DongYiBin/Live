@@ -14,11 +14,12 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import com.douxue.live.dao.entity.AdminUser;
 
 /**
+ * session的工具类
  * 
  * @author Tencent Cloud
  * @author CETC55
- * @date 2017/7/3
- * @since v1.0
+ * @since 2017/7/3
+ * @version v1.0
  */
 public class SessionUtils {
 

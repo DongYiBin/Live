@@ -11,11 +11,11 @@ import com.douxue.live.controller.app.callback.vo.LiveCalbackVo;
 import com.douxue.live.dao.entity.Live;
 
 /**
- * 
+ * 直播的service层
  * @author Tencent Cloud
  * @author CETC55
- * @date 2017/7/3
- * @since v1.0
+ * @since 2017/7/3
+ * @version v1.0
  */
 public interface LiveService {
 
