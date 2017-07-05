@@ -7,7 +7,6 @@ package com.douxue.live.service.user;
 
 import com.douxue.live.common.RestResult;
 import com.douxue.live.common.page.PageData;
-import com.douxue.live.dao.entity.Live;
 import com.douxue.live.dao.entity.User;
 
 /**
@@ -43,5 +42,26 @@ public interface UserService {
 	 * @return
 	 */
 	PageData<User> findUserPageList(Integer pageNum, Integer pageSize, User user);
+	
+	/**
+	 * 删除用户
+	 * @param userId
+	 * @return
+	 */
+	int deleteByPrimaryKey(String userId);
+	
+	/**
+	 * 更新账户
+	 * @param record
+	 * @return
+	 */
+	int updateByPrimaryKeySelective(User record);
+	
+	/**
+	 * 查找用户
+	 * @param user
+	 * @return
+	 */
+	User findOneUser(User user);
 
 }

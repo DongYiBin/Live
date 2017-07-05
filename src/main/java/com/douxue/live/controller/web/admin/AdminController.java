@@ -18,11 +18,11 @@ import com.douxue.live.common.RestResult;
 import com.douxue.live.common.SessionUtils;
 import com.douxue.live.common.page.PageData;
 import com.douxue.live.dao.entity.AdminUser;
-import com.douxue.live.dao.entity.Live;
 import com.douxue.live.dao.entity.User;
 import com.douxue.live.service.admin.AdminUserService;
 import com.douxue.live.service.user.UserService;
 import com.douxue.live.utils.MD5Utils;
+
 
 /**
  * @author Tencent Cloud
@@ -74,5 +74,40 @@ public class AdminController {
 	public RestResult findUserPageList(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum, @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize, User user) {
 		PageData<User> pageData = userService.findUserPageList(pageNum, pageSize, user);
 		return new RestResult(pageData);
+	}
+	
+	/**
+	 * 删除账户
+	 * @param userId
+	 * @return
+	 */
+	@RequestMapping(value = "delaccount", method = RequestMethod.POST)
+	@ResponseBody
+	public RestResult delAcccount(@RequestParam("userId") String userId) {
+		int key = userService.deleteByPrimaryKey(userId);
+		if(key > 0){
+			return RestResult.OK;
+		}
+		return RestResult.FAIL;
+	}
+	
+	/**
+	 * 启/禁用账户
+	 * @param userId
+	 * @return
+	 */
+	@RequestMapping(value = "disaccount", method = RequestMethod.POST)
+	@ResponseBody
+	public RestResult disAcccount(@RequestParam("userId") String userId, @RequestParam("state") int state) {
+		User record = new User();
+		record.setUserId(userId);
+		if (record != null) {
+			record.setState(state); // 禁用状态
+			int key = userService.updateByPrimaryKeySelective(record);
+			if (key > 0) {
+				return RestResult.OK;
+			}
+		}
+		return RestResult.FAIL;
 	}
 }

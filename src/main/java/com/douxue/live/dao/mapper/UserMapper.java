@@ -28,5 +28,5 @@ public interface UserMapper {
 
 	User findOneUser(User user);
 
-	List<User> findLivePageList(PageParam<User> param);
+	List<User> findUserPageList(PageParam<User> param);
 }

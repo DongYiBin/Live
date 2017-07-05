@@ -47,27 +47,6 @@
 		<table class="table table-hover" id="data_table">
 			<thead>
 				<tr style="background-color: #E0E0E0">
-				<!-- private String userId;
-
-	private String account;
-
-	private String password;
-
-	private Integer accountType;
-
-	private String phone;
-
-	private String headPic;
-
-	private String userName;
-
-	private String nickName;
-
-	private Date createTime;
-
-	private String wxUnionid;
-
-	private Integer state; -->
 					<th>用户ID</th>
 					<th>用户名</th>
 					<th>昵称</th>
@@ -111,7 +90,7 @@ $(function(){
 		var data = $('#search_form').serialize();
 		data_ajax(
 			{
-				"url":'<%=contextPath%>/web/live/findLivePageList',
+				"url":'<%=contextPath%>/web/admin/findUserPageList',
 				"data":data
 			},
 			function(rs){
@@ -121,16 +100,22 @@ $(function(){
 				for(var key in rs.data.pageData){
 					var data = rs.data.pageData[key];
 					html += "<tr>";
-					html += "<td>" + NULL(data.streamId) + "</td>";
-					html += "<td>" + NULL(data.title) + "</td>";
-					html += "<td>" + NULL(data.user.nickName) + "</td>";
-					html += "<td>" + NULL(data.praiseCount) + "</td>";
-					html += "<td>" + NULL(data.viewerCount) + "</td>";
-					html += "<td>" + NULL(data.stateName) + "</td>";
+					html += "<td>" + NULL(data.userId) + "</td>";
+					html += "<td>" + NULL(data.account) + "</td>";
+					html += "<td>" + NULL(data.nickName) + "</td>";
+					html += "<td>" + NULL(data.accountType) + "</td>";
+					html += "<td>" + NULL(data.phone) + "</td>";
 					html += "<td>" + NULL(data.createTime) + "</td>";
-					html += "<td>";
-					html += '<a href="javascript:void(0)" class="btn btn-link btn-xs stop" data_id="'+data.streamId+'">禁用</a>';
-					html += '<a href="javascript:void(0)" class="btn btn-link btn-xs monitoring" data_id="'+data.streamId+'">删除</a>';
+					if(NULL(data.state) == -1){
+ 						html += "<td><i>已禁用</i></td>";
+						html += "<td>";
+						html += '<a href="javascript:void(0)" class="btn btn-link btn-xs open" data_id="'+data.userId+'">启用</a>';
+					}else{
+						html += "<td>正常</td>";
+						html += "<td>";
+						html += '<a href="javascript:void(0)" class="btn btn-link btn-xs stop" data_id="'+data.userId+'">禁用</a>';
+					}
+					html += '<a href="javascript:void(0)" class="btn btn-link btn-xs delete" data_id="'+data.userId+'">删除</a>';
 					html += "</td>";
 					
 					html += "</tr>";
@@ -141,29 +126,61 @@ $(function(){
 		);
 	}
 	
-	// 监控
-	$('#data_table').on('click','.monitoring',function(){
+	// 删除
+	$('#data_table').on('click','.delete',function(){
 		var _self = $(this);
-		var id = _self.attr('data_id');
-		window.open("<%= contextPath %>/web/live/monitoring?streamId=" + id);
-	});
-	
-	// 禁播
-	$('#data_table').on('click','.stop',function(){
-		var _self = $(this);
-		layer.confirm('确定强制禁播该直播?',
+		layer.confirm('确定删除该账户?',
 			{
 			  btn: ['确定','取消'] //按钮
 			}, function(){
-					var id = _self.attr('data_id');
-				  	$.post("<%= contextPath %>/web/live/forbidLive",{"streamId":id},function(rs){
-						if(rs.code == 1){
-							layer.msg("已禁播",{icon:6});
-							$('#search_form').submit();
-						} else {
-							layer.msg("失败",{icon:5});
-						}
-					});
+				var id = _self.attr('data_id');
+			  	$.post("<%= contextPath %>/web/admin/delaccount",{"userId":id},function(rs){
+					if(rs.code == 1){
+						layer.msg("已删除",{icon:6});
+						$('#search_form').submit();
+					} else {
+						layer.msg("失败",{icon:5});
+					}
+				});
+			});
+		window.open("<%= contextPath %>/web/admin/delaccount?userId=" + id);
+	});
+	
+	// 禁用
+	$('#data_table').on('click','.stop',function(){
+		var _self = $(this);
+		layer.confirm('确定禁用该账户?',
+			{
+			  btn: ['确定','取消'] //按钮
+			}, function(){
+				var id = _self.attr('data_id');
+			  	$.post("<%= contextPath %>/web/admin/disaccount",{"userId":id, "state" : -1},function(rs){
+					if(rs.code == 1){
+						layer.msg("已禁用",{icon:6});
+						$('#search_form').submit();
+					} else {
+						layer.msg("失败",{icon:5});
+					}
+				});
+		});
+	});
+	
+	// 启用
+	$('#data_table').on('click','.open',function(){
+		var _self = $(this);
+		layer.confirm('确定禁用该账户?',
+			{
+			  btn: ['确定','取消'] //按钮
+			}, function(){
+				var id = _self.attr('data_id');
+			  	$.post("<%= contextPath %>/web/admin/disaccount",{"userId":id, "state" : 0},function(rs){
+					if(rs.code == 1){
+						layer.msg("已启用",{icon:6});
+						$('#search_form').submit();
+					} else {
+						layer.msg("失败",{icon:5});
+					}
+				});
 		});
 	});
 })

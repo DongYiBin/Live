@@ -15,7 +15,6 @@ import com.douxue.live.common.constant.EnumUser;
 import com.douxue.live.common.constant.ErrorCode;
 import com.douxue.live.common.page.PageData;
 import com.douxue.live.common.page.PageParam;
-import com.douxue.live.dao.entity.Live;
 import com.douxue.live.dao.entity.User;
 import com.douxue.live.dao.mapper.UserMapper;
 import com.douxue.live.service.user.UserService;
@@ -80,11 +79,35 @@ public class UserServiceImpl implements UserService {
 		return new RestResult(user);
 	}
 
+	/**
+	 * 用户列表
+	 */
 	@Override
 	public PageData<User> findUserPageList(Integer pageNum, Integer pageSize, User user) {
 		PageParam<User> param = new PageParam<User>(user, pageNum, pageSize);
-		List<User> data = userMapper.findLivePageList(param);
+		List<User> data = userMapper.findUserPageList(param);
 		PageData<User> page = new PageData<User>(pageNum, pageSize, param.getDataTotal(), data);
 		return page;
+	}
+
+	/**
+	 * 删除用户
+	 */
+	@Override
+	public int deleteByPrimaryKey(String userId) {
+		return userMapper.deleteByPrimaryKey(userId);
+	}
+
+	/**
+	 * 更新账户
+	 */
+	@Override
+	public int updateByPrimaryKeySelective(User record) {
+		return userMapper.updateByPrimaryKeySelective(record);
+	}
+
+	@Override
+	public User findOneUser(User user) {
+		return userMapper.findOneUser(user);
 	}
 }
