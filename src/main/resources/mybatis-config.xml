@@ -34,7 +34,7 @@
     
     <!-- <typeAlias alias="page" type="com.mz.live.common.page.PageParam" />  -->
     <plugins>
-		<plugin interceptor="com.mz.live.common.page.PageInterceptor">
+		<plugin interceptor="com.douxue.live.common.page.PageInterceptor">
 			<property name="dbType" value="mysql" />
 		</plugin>
 	</plugins>

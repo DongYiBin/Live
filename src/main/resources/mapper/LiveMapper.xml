@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.mz.live.dao.mapper.LiveMapper" >
-  <resultMap id="BaseResultMap" type="com.mz.live.dao.entity.Live" >
+<mapper namespace="com.douxue.live.dao.mapper.LiveMapper" >
+  <resultMap id="BaseResultMap" type="com.douxue.live.dao.entity.Live" >
     <id column="stream_id" property="streamId" jdbcType="VARCHAR" />
     <result column="user_id" property="userId" jdbcType="VARCHAR" />
     <result column="group_id" property="groupId" jdbcType="VARCHAR" />
@@ -22,7 +22,7 @@
   </resultMap>
   
   <!-- User Result Map -->
-  <resultMap id="UserResultMap" type="com.mz.live.dao.entity.User">
+  <resultMap id="UserResultMap" type="com.douxue.live.dao.entity.User">
 	<id column="user_id" property="userId" jdbcType="VARCHAR" />
 	<result column="account" property="account" jdbcType="VARCHAR" />
 	<!-- <result column="password" property="password" jdbcType="VARCHAR" /> -->
@@ -41,7 +41,7 @@
   	FROM t_user WHERE user_id = #{userId}
   </select>
   
-  <resultMap id="LiveVideoResultMap" type="com.mz.live.dao.entity.LiveVideo" >
+  <resultMap id="LiveVideoResultMap" type="com.douxue.live.dao.entity.LiveVideo" >
     <id column="lv_id" property="lvId" jdbcType="BIGINT" />
     <result column="stream_id" property="streamId" jdbcType="VARCHAR" />
     <result column="video_id" property="videoId" jdbcType="VARCHAR" />
@@ -71,7 +71,7 @@
     delete from t_live
     where stream_id = #{streamId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insertSelective" parameterType="com.mz.live.dao.entity.Live" >
+  <insert id="insertSelective" parameterType="com.douxue.live.dao.entity.Live" >
     insert into t_live
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="streamId != null" >
@@ -168,7 +168,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mz.live.dao.entity.Live" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.douxue.live.dao.entity.Live" >
     update t_live
     <set >
       <if test="userId != null" >
@@ -217,7 +217,7 @@
     where stream_id = #{streamId,jdbcType=VARCHAR}
   </update>
   
-  <select id="getAppLivePage" resultMap="BaseResultMap" parameterType="com.mz.live.common.page.PageParam">
+  <select id="getAppLivePage" resultMap="BaseResultMap" parameterType="com.douxue.live.common.page.PageParam">
     SELECT 
     <include refid="Base_Column_List" />  
     FROM t_live 
@@ -237,7 +237,7 @@
     ORDER BY create_time DESC 
    </select>
    
-   <select id="findLivePageList" resultMap="BaseResultMap" parameterType="com.mz.live.common.page.PageParam">
+   <select id="findLivePageList" resultMap="BaseResultMap" parameterType="com.douxue.live.common.page.PageParam">
 		SELECT 
 		l.* 
 		FROM t_live l INNER JOIN t_user u ON l.user_id = u.user_id 

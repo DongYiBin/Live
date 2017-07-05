@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>mz.live</groupId>
-	<artifactId>mz-live</artifactId>
+	<groupId>douxue.live</groupId>
+	<artifactId>douxue_web</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>mz-live Maven Webapp</name>
+	<name>douxue_web Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -264,7 +264,7 @@
 			</properties>
 		</profile>
 		<profile>
-			<!-- 生产环境 -->
+	<!-- 生产环境 -->
 			<id>production</id>
 			<properties>
 				<profiles.active>production</profiles.active>
@@ -273,7 +273,7 @@
 	</profiles>
 
 	<build>
-		<finalName>mz-live</finalName>
+		<finalName>douxue_web</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.mybatis.generator</groupId>

@@ -43,19 +43,19 @@
 	</bean>
 
 	<!-- 实现类 -->
-	<bean id="redisStringServiceImpl" class="com.mz.live.redis.impl.RedisStringServiceImpl">
+	<bean id="redisStringServiceImpl" class="com.douxue.live.redis.impl.RedisStringServiceImpl">
 		<!-- 默认使用GsonStringConverter，也可以注入其它实现类 -->
 	</bean>
 
-	<bean id="redisSeterviceImpl" class="com.mz.live.redis.impl.RedisSetServiceImpl">
+	<bean id="redisSeterviceImpl" class="com.douxue.live.redis.impl.RedisSetServiceImpl">
 		<!-- 默认使用GsonStringConverter，也可以注入其它实现类 -->
 	</bean>
 
-	<bean id="redisSortedSeterviceImpl" class="com.mz.live.redis.impl.RedisSortedSetServiceImpl">
+	<bean id="redisSortedSeterviceImpl" class="com.douxue.live.redis.impl.RedisSortedSetServiceImpl">
 		<!-- 默认使用GsonStringConverter，也可以注入其它实现类 -->
 	</bean>
 
-	<bean id="redisHashSeterviceImpl" class="com.mz.live.redis.impl.RedisHashServiceImpl">
+	<bean id="redisHashSeterviceImpl" class="com.douxue.live.redis.impl.RedisHashServiceImpl">
 		<!-- 默认使用GsonStringConverter，也可以注入其它实现类 -->
 	</bean>
 

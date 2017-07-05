@@ -9,7 +9,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
     <!-- Scans the classpath of this application for @Components to deploy as beans -->
 
-    <context:component-scan base-package="com.mz.live.controller" />
+    <context:component-scan base-package="com.douxue.live.controller" />
     <!--  -->
 	<mvc:annotation-driven  validator="validator"/>
 	
@@ -22,7 +22,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
 			<mvc:exclude-mapping path="/app/**" />
 			<mvc:exclude-mapping path="/web/admin/login" />
 			<mvc:exclude-mapping path="/web/admin/loginPage" />
-			<bean class="com.mz.live.filter.WebLoginFilter" />
+			<bean class="com.douxue.live.filter.WebLoginFilter" />
 		</mvc:interceptor>
 	</mvc:interceptors>
 

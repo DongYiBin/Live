@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.mz.live.dao.mapper.LiveVideoMapper" >
-  <resultMap id="BaseResultMap" type="com.mz.live.dao.entity.LiveVideo" >
+<mapper namespace="com.douxue.live.dao.mapper.LiveVideoMapper" >
+  <resultMap id="BaseResultMap" type="com.douxue.live.dao.entity.LiveVideo" >
     <id column="lv_id" property="lvId" jdbcType="BIGINT" />
     <result column="stream_id" property="streamId" jdbcType="VARCHAR" />
     <result column="video_id" property="videoId" jdbcType="VARCHAR" />
@@ -27,7 +27,7 @@
     delete from t_live_video
     where lv_id = #{lvId,jdbcType=BIGINT}
   </delete>
-  <insert id="insertSelective" parameterType="com.mz.live.dao.entity.LiveVideo" >
+  <insert id="insertSelective" parameterType="com.douxue.live.dao.entity.LiveVideo" >
     insert into t_live_video
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="lvId != null" >
@@ -94,7 +94,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mz.live.dao.entity.LiveVideo" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.douxue.live.dao.entity.LiveVideo" >
     update t_live_video
     <set >
       <if test="streamId != null" >

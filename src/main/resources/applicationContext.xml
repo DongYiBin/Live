@@ -30,13 +30,13 @@
 		<property name="fileEncoding" value="utf-8" />
 	</bean>
 
-	<context:component-scan base-package="com.mz.live.dao.mapper" />
-	<context:component-scan base-package="com.mz.live.service" />
-	<context:component-scan base-package="com.mz.live.dao.redis" />
-	<context:component-scan base-package="com.mz.live.controller" />
+	<context:component-scan base-package="com.douxue.live.dao.mapper" />
+	<context:component-scan base-package="com.douxue.live.service" />
+	<context:component-scan base-package="com.douxue.live.dao.redis" />
+	<context:component-scan base-package="com.douxue.live.controller" />
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.mz.live.dao.mapper" />
+		<property name="basePackage" value="com.douxue.live.dao.mapper" />
 		<property name="sqlSessionFactoryBeanName" value="myBatisSqlSessionFactory" />
 		<property name="annotationClass" value="org.springframework.stereotype.Repository" />
 	</bean>
@@ -49,7 +49,7 @@
 
 	<!-- MyBatis扫描路径 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.mz.live.dao.mapper" />
+		<property name="basePackage" value="com.douxue.live.dao.mapper" />
 		<property name="sqlSessionFactoryBeanName" value="myBatisSqlSessionFactory" />
 	</bean>
 

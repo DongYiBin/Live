@@ -61,6 +61,12 @@
 							<span class="menu-text"> 直播管理 </span>
 						</a>
 					</li>
+					<li class="">
+						<a href="<%=contextPath%>/web/admin/muser">
+							<i class="glyphicon glyphicon-list"></i>
+							<span class="menu-text"> 用户管理 </span>
+						</a>
+					</li>
 				</ul>
 				<div class="sidebar-collapse" id="sidebar-collapse">
 					<i class="glyphicon glyphicon-transfer" data-icon1="glyphicon glyphicon-transfer" data-icon2="glyphicon glyphicon-transfer"></i>
@@ -88,6 +94,7 @@
 				window.sessionStorage.setItem("linkUrl", href);
 				window.sessionStorage.setItem("linkIndex", index);
 				$(".main-content").load(href);
+				location.reload();
 				return false;
 			});
 			//点击引入右侧页面
