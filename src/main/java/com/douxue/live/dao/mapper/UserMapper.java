@@ -11,11 +11,11 @@ import com.douxue.live.common.page.PageParam;
 import com.douxue.live.dao.entity.User;
 
 /**
- * 
+ * mybatis中数据库操作接口
  * @author Tencent Cloud
  * @author CETC55
- * @date 2017/7/3
- * @since v1.0
+ * @since 2017/7/3
+ * @version v1.0
  */
 public interface UserMapper {
 	int deleteByPrimaryKey(String userId);

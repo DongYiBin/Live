@@ -18,11 +18,11 @@ import com.qcloud.cos.sign.Credentials;
 import com.qcloud.cos.sign.Sign;
 
 /**
- * 
+ * 腾讯云云储存service层具体实现
  * @author Tencent Cloud
  * @author CETC55
- * @date 2017/7/3
- * @since v1.0
+ * @since 2017/7/3
+ * @version v1.0
  */
 @Service
 public class ToolServiceImpl implements ToolService {

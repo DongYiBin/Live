@@ -11,11 +11,11 @@ import org.springframework.stereotype.Service;
 import com.douxue.live.utils.MD5Utils;
 
 /**
- * 
+ * 直播使用的工具
  * @author Tencent Cloud
  * @author CETC55
- * @date 2017/7/3
- * @since v1.0
+ * @since 2017/7/3
+ * @version v1.0
  */
 @Service
 public class LiveApiTool {

@@ -23,11 +23,11 @@ import com.douxue.live.utils.MD5Utils;
 import com.douxue.live.utils.UUIDUtils;
 
 /**
- * 
+ * 用户的service层具体实现
  * @author Tencent Cloud
  * @author CETC55
- * @date 2017/7/3
- * @since v1.0
+ * @since 2017/7/3
+ * @version v1.0
  */
 @Service
 public class UserServiceImpl implements UserService {
